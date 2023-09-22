@@ -27,3 +27,16 @@ body {
 .carousel__left, .carousel__right {
     display: flex;
 }
+
+.carousel__item {
+    margin: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.book-cover, .book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

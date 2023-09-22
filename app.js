@@ -1,6 +1,8 @@
 function Carousel() {
     this.items = [];
     this.index = 0;
+    this.leftButton = null;
+    this.rightButton = null;
 
     this.render = function() {
         return this.items[this.index];
