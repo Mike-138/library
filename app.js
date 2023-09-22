@@ -4,7 +4,7 @@ function Carousel() {
     this.leftButton = null;
     this.rightButton = null;
 
-    this.render = function() {
+    this.active = function() {
         return this.items[this.index];
     }
 
@@ -38,10 +38,22 @@ function Book(title, author, pages, read) {
     }
 }
 
+function displayInfo(book) {
+    let title = document.querySelector(".book-cover__title");
+    let author = document.querySelector(".book-cover__author");
+    let pages = document.querySelector(".book-info__pages");
+    let read = document.querySelector(".book-info__read");
+
+    title.textContent = book.title;
+    author.textContent = `by ${book.author}`;
+    pages.textContent = `This book contains ${book.pages} pages`;
+    read.textContent = `${this.read ? "You have already read this book" : "You have not yet read this book"}`;
+}
+
 let book1 = new Book("My Story", "Me", 69, true);
 let book2 = new Book("Your Story", "You", 420, false);
 let book3 = new Book("Their Story", "Them", 999, false);
-let carousel = new Carousel();
+const carousel = new Carousel();
 carousel.items.push(book1);
 carousel.items.push(book2);
 carousel.items.push(book3);
@@ -51,10 +63,14 @@ carousel.rightButton = document.querySelector(".carousel__right");
 
 console.log(carousel);
 
+displayInfo(carousel.active());
+
 carousel.leftButton.addEventListener("click", () => {
-    console.log(carousel.previous().render().info());
+    carousel.previous();
+    displayInfo(carousel.active());
 })
 
 carousel.rightButton.addEventListener("click", () => {
-    console.log(carousel.next().render().info());
+    carousel.next();
+    displayInfo(carousel.active());
 })
