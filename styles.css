@@ -14,8 +14,26 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: inherit; /* for testing different screen sizes */
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
     justify-content: center;
+}
+
+.add-container {
+    width: 70%;
+    display: flex;
+}
+
+.add-container__button {
+    align-self: center;
+    width: 5rem;
+    aspect-ratio: 1;
+    background-color: #67e8f9; /* Fallback color */
+    background-image: url(plus.svg); /* Fallback image */
+    background-image: url(plus.svg), linear-gradient(45deg, #fff, #67e8f9);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 25px;
 }
 
 .carousel {
