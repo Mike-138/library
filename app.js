@@ -3,24 +3,24 @@ function Carousel() {
     this.index = 0;
 
     this.render = function() {
-        return items[index];
+        return this.items[this.index];
     }
 
     this.next = function() {
-        if (index === items.length - 1) {
-            index = 0;
-            return;
+        if (this.index === this.items.length - 1) {
+            this.index = 0;
+        } else {
+            this.index += 1;
         }
-        index += 1;
-        return;
+        return this.render();
     }
 
     this.previous = function() {
-        if (index === 0) {
-            index = items.length - 1;
-            return;
+        if (this.index === 0) {
+            this.index = this.items.length - 1;
+        } else {
+            this.index -= 1;
         }
-        index -= 1;
-        return;
+        return this.render();
     }
 }
