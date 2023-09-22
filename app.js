@@ -59,6 +59,8 @@ carousel.items.push(book2);
 carousel.items.push(book3);
 
 const addButton = document.querySelector(".add-container__button");
+const addDialog = document.querySelector("dialog");
+
 carousel.leftButton = document.querySelector(".carousel__left");
 carousel.rightButton = document.querySelector(".carousel__right");
 
@@ -77,5 +79,5 @@ carousel.rightButton.addEventListener("click", () => {
 })
 
 addButton.addEventListener("click", () => {
-    carousel.items.push(new Book("Placeholder", "Placeholder", 0, false));
+    addDialog.showModal();
 })
