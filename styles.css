@@ -11,6 +11,7 @@ html {
 }
 
 body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: inherit; /* for testing different screen sizes */
     display: flex;
     align-items: center;
@@ -36,7 +37,12 @@ body {
 }
 
 .book-cover, .book-info {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.book-cover * {
+    text-align: center;
 }
