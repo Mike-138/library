@@ -23,3 +23,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
 }
+
+.carousel__left, .carousel__right {
+    display: flex;
+}
