@@ -53,6 +53,7 @@ function displayInfo() {
         author.textContent = `by ${carousel.active().author}`;
         pages.textContent = `This book contains ${carousel.active().pages} pages`;
         read.textContent = `${carousel.active().read ? "You have already read this book" : "You have not yet read this book"}`;
+        carousel.active().read ? toggleRead.firstChild.src = "check.svg" : toggleRead.firstChild.src = "close.svg";
     }
 }
 
@@ -75,6 +76,8 @@ const boolRead = document.querySelector("#read");
 const confirmBtn = document.querySelector("#confirm-btn");
 const cancelBtn = document.querySelector("#cancel-btn");
 const dialogForm = document.querySelector("form");
+
+let toggleRead = document.querySelector(".toggle-button");
 
 carousel.leftButton = document.querySelector(".carousel__left");
 carousel.rightButton = document.querySelector(".carousel__right");
@@ -141,6 +144,15 @@ removeButton.addEventListener("click", () => {
     }
     if (!carousel.items) {
         carousel.index = 0;
+    }
+    displayInfo();
+})
+
+toggleRead.addEventListener("click", () => {
+    if (carousel.active().read) {
+        carousel.active().read = false;
+    } else {
+        carousel.active().read = true;
     }
     displayInfo();
 })
