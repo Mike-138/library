@@ -56,9 +56,10 @@ form {
     flex-direction: column;
 }
 
-.action-container {
+.split-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .add-button {
@@ -69,14 +70,14 @@ form {
     background: linear-gradient(-45deg, #fff, #f96c67);
 }
 
-.add-button, .remove-button {
+.add-button, .remove-button, .toggle-button {
     margin: 1rem;
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 50%;
 }
 
-.add-button img, .remove-button img {
+.add-button img, .remove-button img, .toggle-button img {
     border-radius: 50%;
 }
 
@@ -88,10 +89,6 @@ form {
 .book-cover * {
     display: grid;
     place-content: center;
-}
-
-.book-info p:last-child {
-    flex: initial;
 }
 
 .book-cover * {
