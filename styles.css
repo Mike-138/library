@@ -43,11 +43,11 @@ form {
     width: 4rem;
     height: 4rem;
     background: linear-gradient(-45deg, #fff, #67e8f9);
-    border-radius: 25px;
+    border-radius: 50%;
 }
 
 .add-container__button img {
-    border-radius: 25px;
+    border-radius: 50%;
 }
 
 .carousel {
