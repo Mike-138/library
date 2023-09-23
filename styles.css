@@ -33,23 +33,6 @@ form {
     grid-template: 1fr 1fr 1fr / 1fr 1fr;
 }
 
-.add-container {
-    width: 70%;
-    display: flex;
-}
-
-.add-container__button {
-    align-self: center;
-    width: 4rem;
-    height: 4rem;
-    background: linear-gradient(-45deg, #fff, #67e8f9);
-    border-radius: 50%;
-}
-
-.add-container__button img {
-    border-radius: 50%;
-}
-
 .carousel {
     height: 70%;
     width: 70%;
@@ -73,16 +56,27 @@ form {
     flex-direction: column;
 }
 
-.book-info__button {
+.action-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-button {
+    background: linear-gradient(-45deg, #fff, #67f97f);
+}
+
+.remove-button {
+    background: linear-gradient(-45deg, #fff, #f96c67);
+}
+
+.add-button, .remove-button {
     margin: 1rem;
-    align-self: flex-end;
     height: 2.5rem;
     width: 2.5rem;
-    background: linear-gradient(-45deg, #fff, #f96c67);
     border-radius: 50%;
 }
 
-.book-info__button img {
+.add-button img, .remove-button img {
     border-radius: 50%;
 }
 

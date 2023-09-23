@@ -64,8 +64,8 @@ carousel.items.push(book1);
 carousel.items.push(book2);
 carousel.items.push(book3);
 
-const removeButton = document.querySelector(".book-info__button");
-const addButton = document.querySelector(".add-container__button");
+const removeButton = document.querySelector(".remove-button");
+const addButton = document.querySelector(".add-button");
 
 const addDialog = document.querySelector("dialog");
 const textTitle = document.querySelector("#title");
