@@ -25,6 +25,10 @@ function Carousel() {
         }
         return this; /* Allows previous to be chained */
     }
+
+    this.remove = function(index) {
+        return this.items.splice(index, 1);
+    }
 }
 
 function Book(title, author, pages, read) {
