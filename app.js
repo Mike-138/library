@@ -42,16 +42,18 @@ function Book(title, author, pages, read) {
     }
 }
 
-function displayInfo(book) {
+function displayInfo() {
     let title = document.querySelector(".book-cover__title");
     let author = document.querySelector(".book-cover__author");
     let pages = document.querySelector(".book-info__pages");
     let read = document.querySelector(".book-info__read");
 
-    title.textContent = book.title;
-    author.textContent = `by ${book.author}`;
-    pages.textContent = `This book contains ${book.pages} pages`;
-    read.textContent = `${book.read ? "You have already read this book" : "You have not yet read this book"}`;
+    if (carousel.active()) {
+        title.textContent = carousel.active().title;
+        author.textContent = `by ${carousel.active().author}`;
+        pages.textContent = `This book contains ${carousel.active().pages} pages`;
+        read.textContent = `${carousel.active().read ? "You have already read this book" : "You have not yet read this book"}`;
+    }
 }
 
 let book1 = new Book("My Story", "Me", 69, true);
@@ -62,7 +64,9 @@ carousel.items.push(book1);
 carousel.items.push(book2);
 carousel.items.push(book3);
 
+const removeButton = document.querySelector(".book-info__button");
 const addButton = document.querySelector(".add-container__button");
+
 const addDialog = document.querySelector("dialog");
 const textTitle = document.querySelector("#title");
 const textAuthor = document.querySelector("#author");
@@ -70,7 +74,6 @@ const numPages = document.querySelector("#pages");
 const boolRead = document.querySelector("#read");
 const confirmBtn = document.querySelector("#confirm-btn");
 const cancelBtn = document.querySelector("#cancel-btn");
-
 const dialogForm = document.querySelector("form");
 
 carousel.leftButton = document.querySelector(".carousel__left");
@@ -78,16 +81,16 @@ carousel.rightButton = document.querySelector(".carousel__right");
 
 console.log(carousel);
 
-displayInfo(carousel.active());
+displayInfo();
 
 carousel.leftButton.addEventListener("click", () => {
     carousel.previous();
-    displayInfo(carousel.active());
+    displayInfo();
 })
 
 carousel.rightButton.addEventListener("click", () => {
     carousel.next();
-    displayInfo(carousel.active());
+    displayInfo();
 })
 
 let dialogValues = {title: null, author: null, pages: null, read: false};
@@ -129,4 +132,15 @@ numPages.addEventListener("change", () => {
 
 boolRead.addEventListener("change", () => {
     dialogValues.read = boolRead.checked;
+})
+
+removeButton.addEventListener("click", () => {
+    carousel.remove(carousel.index);
+    if (carousel.index === carousel.items.length) {
+        carousel.index -= 1;
+    }
+    if (!carousel.items) {
+        carousel.index = 0;
+    }
+    displayInfo();
 })
