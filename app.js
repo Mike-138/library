@@ -60,6 +60,12 @@ carousel.items.push(book3);
 
 const addButton = document.querySelector(".add-container__button");
 const addDialog = document.querySelector("dialog");
+const textTitle = document.querySelector("#title");
+const textAuthor = document.querySelector("#author");
+const numPages = document.querySelector("#pages");
+const boolRead = document.querySelector("#read");
+const confirmBtn = document.querySelector("#confirm-btn");
+const cancelBtn = document.querySelector("#cancel-btn");
 
 carousel.leftButton = document.querySelector(".carousel__left");
 carousel.rightButton = document.querySelector(".carousel__right");
@@ -80,4 +86,9 @@ carousel.rightButton.addEventListener("click", () => {
 
 addButton.addEventListener("click", () => {
     addDialog.showModal();
+})
+
+confirmBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log(event);
 })

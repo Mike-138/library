@@ -9,21 +9,21 @@
 </head>
 <body>
     <dialog>
-        <form>
+        <form method="dialog">
             <label for="title">Book Title</label>
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" required>
 
             <label for="author">Book Author</label>
-            <input type="text" name="author" id="author">
+            <input type="text" name="author" id="author" required>
 
             <label for="pages">Number of Pages</label>
-            <input type="number" name="pages" id="pages" min="0" max="2000">
+            <input type="number" name="pages" id="pages" min="0" max="2000" required>
 
             <label for="read">Have you read it?</label>
             <input type="checkbox" name="read" id="read">
 
-            <button value="cancel" formmethod="dialog">Cancel</button>
-            <button value="default">Confirm</button>
+            <button id="cancel-btn" value="cancel">Cancel</button>
+            <button id="confirm-btn" value="default">Confirm</button>
         </form>
     </dialog>
     <div class="add-container">
