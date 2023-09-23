@@ -47,7 +47,7 @@ function displayInfo(book) {
     title.textContent = book.title;
     author.textContent = `by ${book.author}`;
     pages.textContent = `This book contains ${book.pages} pages`;
-    read.textContent = `${this.read ? "You have already read this book" : "You have not yet read this book"}`;
+    read.textContent = `${book.read ? "You have already read this book" : "You have not yet read this book"}`;
 }
 
 let book1 = new Book("My Story", "Me", 69, true);
@@ -66,6 +66,7 @@ const numPages = document.querySelector("#pages");
 const boolRead = document.querySelector("#read");
 const confirmBtn = document.querySelector("#confirm-btn");
 const cancelBtn = document.querySelector("#cancel-btn");
+let dialogValues = {title: null, author: null, pages: null, read: null};
 
 carousel.leftButton = document.querySelector(".carousel__left");
 carousel.rightButton = document.querySelector(".carousel__right");
@@ -86,9 +87,36 @@ carousel.rightButton.addEventListener("click", () => {
 
 addButton.addEventListener("click", () => {
     addDialog.showModal();
+    let newBook = new Book(null, null, null, null);
+})
+
+addDialog.addEventListener("close", () => {
+    dialogValues = {title: null, author: null, pages: null, read: null};
 })
 
 confirmBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log(event);
+    let newBook = new Book(dialogValues.title, dialogValues.author, dialogValues.pages, dialogValues.read);
+    carousel.items.push(newBook);
+    addDialog.close();
+})
+
+cancelBtn.addEventListener("click", () => {
+    addDialog.close();
+})
+
+textTitle.addEventListener("change", () => {
+    dialogValues.title = textTitle.value;
+})
+
+textAuthor.addEventListener("change", () => {
+    dialogValues.author = textAuthor.value;
+})
+
+numPages.addEventListener("change", () => {
+    dialogValues.pages = Number(numPages.value);
+})
+
+boolRead.addEventListener("change", () => {
+    dialogValues.read = boolRead.checked;
 })
