@@ -66,7 +66,8 @@ const numPages = document.querySelector("#pages");
 const boolRead = document.querySelector("#read");
 const confirmBtn = document.querySelector("#confirm-btn");
 const cancelBtn = document.querySelector("#cancel-btn");
-let dialogValues = {title: null, author: null, pages: null, read: null};
+
+const dialogForm = document.querySelector("form");
 
 carousel.leftButton = document.querySelector(".carousel__left");
 carousel.rightButton = document.querySelector(".carousel__right");
@@ -85,23 +86,28 @@ carousel.rightButton.addEventListener("click", () => {
     displayInfo(carousel.active());
 })
 
+let dialogValues = {title: null, author: null, pages: null, read: false};
+
 addButton.addEventListener("click", () => {
     addDialog.showModal();
     let newBook = new Book(null, null, null, null);
 })
 
 addDialog.addEventListener("close", () => {
-    dialogValues = {title: null, author: null, pages: null, read: null};
+    textTitle.value = "";
+    textAuthor.value = "";
+    numPages.value = "";
+    boolRead.checked = false;
+    dialogValues = {title: null, author: null, pages: null, read: false};
 })
 
-confirmBtn.addEventListener("click", (event) => {
-    event.preventDefault();
+dialogForm.addEventListener("submit", () => {
     let newBook = new Book(dialogValues.title, dialogValues.author, dialogValues.pages, dialogValues.read);
     carousel.items.push(newBook);
-    addDialog.close();
 })
 
-cancelBtn.addEventListener("click", () => {
+cancelBtn.addEventListener("click", (event) => {
+    event.preventDefault(); /* prevents form from submitting */
     addDialog.close();
 })
 
