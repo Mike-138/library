@@ -71,11 +71,33 @@ form {
 .book-cover, .book-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
-.book-cover *, .book-info * {
+.book-info__button {
+    margin: 1rem;
+    align-self: flex-end;
+    height: 2.5rem;
+    width: 2.5rem;
+    background: linear-gradient(-45deg, #fff, #f96c67);
+    border-radius: 50%;
+}
+
+.book-info__button img {
+    border-radius: 50%;
+}
+
+.book-cover *, .book-info p {
     padding: 1rem;
+    flex: 1;
+}
+
+.book-cover * {
+    display: grid;
+    place-content: center;
+}
+
+.book-info p:last-child {
+    flex: initial;
 }
 
 .book-cover * {
