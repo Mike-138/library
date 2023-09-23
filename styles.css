@@ -40,13 +40,13 @@ form {
 
 .add-container__button {
     align-self: center;
-    width: 5rem;
-    aspect-ratio: 1;
-    background-color: #67e8f9; /* Fallback color */
-    background-image: url(plus.svg); /* Fallback image */
-    background-image: url(plus.svg), linear-gradient(45deg, #fff, #67e8f9);
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(-45deg, #fff, #67e8f9);
+    border-radius: 25px;
+}
+
+.add-container__button img {
     border-radius: 25px;
 }
 
@@ -57,20 +57,8 @@ form {
     grid-template-columns: 1fr 3fr 1fr;
 }
 
-.carousel__left {
-    background-color: #67e8f9; /* Fallback color */
-    background-image: url(chevron-left.svg); /* Fallback image */
-    background-image: url(chevron-left.svg), linear-gradient(-45deg, #fff, #67e8f9);
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.carousel__right {
-    background-color: #67e8f9; /* Fallback color */
-    background-image: url(chevron-right.svg); /* Fallback image */
-    background-image: url(chevron-right.svg), linear-gradient(45deg, #fff, #67e8f9);
-    background-repeat: no-repeat;
-    background-position: center;
+.carousel__left, .carousel__right {
+    background: linear-gradient(-45deg, #fff, #67e8f9);
 }
 
 .carousel__item {
