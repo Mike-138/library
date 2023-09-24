@@ -1,3 +1,7 @@
+:root {
+    --book-background-color: brown;
+}
+
 html {
     height: 100%; /* for testing different screen sizes */
     box-sizing: border-box;
@@ -37,7 +41,7 @@ form {
     width: 70%;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    background-color: brown;
+    background-color: var(--book-background-color);
     border: 1px solid black;
 }
 
@@ -59,7 +63,7 @@ form {
     width: 100%;
     display: grid;
     place-content: center;
-    background: red;
+    background-color: var(--book-background-color);
 }
 
 .book-cover, .book-info {
