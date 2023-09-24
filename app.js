@@ -65,7 +65,9 @@ function displayInfo() {
 let book1 = new Book("My Story", "Me", 69, true);
 let book2 = new Book("Your Story", "You", 420, false);
 let book3 = new Book("Their Story", "Them", 999, false);
+
 const carousel = new Carousel();
+
 carousel.items.push(book1);
 carousel.items.push(book2);
 carousel.items.push(book3);
@@ -88,7 +90,7 @@ let toggleRead = document.querySelector(".toggle-button");
 carousel.leftButton = document.querySelector(".carousel__left");
 carousel.rightButton = document.querySelector(".carousel__right");
 
-console.log(carousel);
+// Start of script
 
 displayInfo();
 
