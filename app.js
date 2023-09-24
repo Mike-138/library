@@ -125,7 +125,7 @@ dialogForm.addEventListener("submit", () => {
 })
 
 cancelBtn.addEventListener("click", (event) => {
-    event.preventDefault(); /* prevents form from submitting */
+    event.preventDefault(); // prevents form from submitting
     addDialog.close();
 })
 
