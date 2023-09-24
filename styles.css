@@ -7,7 +7,6 @@ html {
     padding: 0;
     margin: 0;
     box-sizing: inherit;
-    border: 1px solid black; /* temporary */
 }
 
 body {
@@ -38,6 +37,8 @@ form {
     width: 70%;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    background-color: brown;
+    border: 1px solid black;
 }
 
 .carousel__left, .carousel__right {
@@ -56,12 +57,16 @@ form {
     position: absolute;
     height: 100%;
     width: 100%;
+    display: grid;
+    place-content: center;
     background: red;
 }
 
 .book-cover, .book-info {
     display: flex;
     flex-direction: column;
+    background-color: bisque;
+    border: 1px solid black;
 }
 
 .split-container {

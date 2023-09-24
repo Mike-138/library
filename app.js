@@ -43,20 +43,22 @@ function Book(title, author, pages, read) {
 }
 
 function displayInfo() {
+    let carouselIndex = document.querySelector(".carousel-index");
     let title = document.querySelector(".book-cover__title");
     let author = document.querySelector(".book-cover__author");
     let pages = document.querySelector(".book-info__pages");
     let read = document.querySelector(".book-info__read");
 
     if (carousel.active()) {
-        emptyCarousel.classList.add("hidden");
+        carouselEmpty.classList.add("hidden");
+        carouselIndex.textContent = `${carousel.index + 1} / ${carousel.items.length}`
         title.textContent = carousel.active().title;
         author.textContent = `by ${carousel.active().author}`;
         pages.textContent = `This book contains ${carousel.active().pages} pages`;
         read.textContent = `${carousel.active().read ? "You have already read this book" : "You have not yet read this book"}`;
         carousel.active().read ? toggleRead.firstChild.src = "check.svg" : toggleRead.firstChild.src = "close.svg";
     } else {
-        emptyCarousel.classList.remove("hidden");
+        carouselEmpty.classList.remove("hidden");
     }
 }
 
@@ -68,7 +70,7 @@ carousel.items.push(book1);
 carousel.items.push(book2);
 carousel.items.push(book3);
 
-const emptyCarousel = document.querySelector(".carousel__empty");
+const carouselEmpty = document.querySelector(".carousel__empty");
 const removeButton = document.querySelector(".remove-button");
 const addButtons = document.querySelectorAll(".add-button");
 
