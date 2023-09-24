@@ -49,11 +49,14 @@ function displayInfo() {
     let read = document.querySelector(".book-info__read");
 
     if (carousel.active()) {
+        emptyCarousel.classList.add("hidden");
         title.textContent = carousel.active().title;
         author.textContent = `by ${carousel.active().author}`;
         pages.textContent = `This book contains ${carousel.active().pages} pages`;
         read.textContent = `${carousel.active().read ? "You have already read this book" : "You have not yet read this book"}`;
         carousel.active().read ? toggleRead.firstChild.src = "check.svg" : toggleRead.firstChild.src = "close.svg";
+    } else {
+        emptyCarousel.classList.remove("hidden");
     }
 }
 
@@ -65,6 +68,7 @@ carousel.items.push(book1);
 carousel.items.push(book2);
 carousel.items.push(book3);
 
+const emptyCarousel = document.querySelector(".carousel__empty");
 const removeButton = document.querySelector(".remove-button");
 const addButton = document.querySelector(".add-button");
 
@@ -142,7 +146,7 @@ removeButton.addEventListener("click", () => {
     if (carousel.index === carousel.items.length) {
         carousel.index -= 1;
     }
-    if (!carousel.items) {
+    if (!carousel.items.length) {
         carousel.index = 0;
     }
     displayInfo();

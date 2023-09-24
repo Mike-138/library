@@ -45,10 +45,18 @@ form {
 }
 
 .carousel__item {
+    position: relative;
     margin: 1rem;
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
+}
+
+.carousel__empty {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: red;
 }
 
 .book-cover, .book-info {
@@ -93,4 +101,8 @@ form {
 
 .book-cover * {
     text-align: center;
+}
+
+.hidden {
+    display: none;
 }
