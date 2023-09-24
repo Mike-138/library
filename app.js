@@ -120,6 +120,8 @@ addDialog.addEventListener("close", () => {
 dialogForm.addEventListener("submit", () => {
     let newBook = new Book(dialogValues.title, dialogValues.author, dialogValues.pages, dialogValues.read);
     carousel.items.push(newBook);
+    carousel.index = carousel.items.length - 1;
+    displayInfo();
 })
 
 cancelBtn.addEventListener("click", (event) => {
