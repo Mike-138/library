@@ -70,7 +70,7 @@ carousel.items.push(book3);
 
 const emptyCarousel = document.querySelector(".carousel__empty");
 const removeButton = document.querySelector(".remove-button");
-const addButton = document.querySelector(".add-button");
+const addButtons = document.querySelectorAll(".add-button");
 
 const addDialog = document.querySelector("dialog");
 const textTitle = document.querySelector("#title");
@@ -102,9 +102,11 @@ carousel.rightButton.addEventListener("click", () => {
 
 let dialogValues = {title: null, author: null, pages: null, read: false};
 
-addButton.addEventListener("click", () => {
-    addDialog.showModal();
-    let newBook = new Book(null, null, null, null);
+addButtons.forEach((addButton) => {
+    addButton.addEventListener("click", () => {
+        addDialog.showModal();
+        let newBook = new Book(null, null, null, null);
+    })
 })
 
 addDialog.addEventListener("close", () => {
