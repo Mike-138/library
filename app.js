@@ -1,45 +1,49 @@
-function Carousel() {
-    this.items = [];
-    this.index = 0;
-    this.leftButton = null;
-    this.rightButton = null;
-
-    this.active = function() {
-        return this.items[this.index];
+class Carousel {
+    constructor() {
+        this.items = [];
+        this.index = 0;
+        this.leftButton = null;
+        this.rightButton = null;
     }
 
-    this.next = function() {
+    active = function () {
+        return this.items[this.index];
+    };
+
+    next = function () {
         if (this.index === this.items.length - 1) {
             this.index = 0;
         } else {
             this.index += 1;
         }
         return this; /* Allows next to be chained */
-    }
+    };
 
-    this.previous = function() {
+    previous = function () {
         if (this.index === 0) {
             this.index = this.items.length - 1;
         } else {
             this.index -= 1;
         }
         return this; /* Allows previous to be chained */
-    }
+    };
 
-    this.remove = function(index) {
+    remove = function (index) {
         return this.items.splice(index, 1);
-    }
+    };
+
 }
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-
-    this.info = function() {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? "already read" : "not read yet"}`
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
     }
+    info = function () {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? "already read" : "not read yet"}`;
+    };
 }
 
 function displayInfo() {
